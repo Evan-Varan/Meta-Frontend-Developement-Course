@@ -12,9 +12,9 @@ export default function App() {
   );
 
   function spendGiftCard() {
-    setGiftCard((prevState) => {
+    setGiftCard((prevState) => { //prevState is the previous state of the object this is a keyword in React, not a variable.
       return {
-        ...prevState,
+        ...prevState, //Return everything in the previous state of the object but update the stuff below
         text: "Your coupon has been used.",
         valid: false,
         instructions: "Please visit our restaurant to renew your gift card."
