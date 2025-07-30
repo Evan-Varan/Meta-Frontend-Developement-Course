@@ -12,7 +12,7 @@ export default function App() {
   );
 
   function spendGiftCard() {
-    setGiftCard((prevState) => { //prevState is the previous state of the object this is a keyword in React, not a variable.
+    setGiftCard((prevState) => { //The parameter prevState is the previous state of the object this is a variable and the name can be anything
       return {
         ...prevState, //Return everything in the previous state of the object but update the stuff below
         text: "Your coupon has been used.",
