@@ -1,0 +1,31 @@
+li{
+    color: white;
+    display: flex;
+    font-family: var(--font-body);
+    font-size: medium;
+}
+
+.leftNav{
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+}
+
+.rightNav{
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+.logo-text{
+    display: flex;
+    font-size: 3rem;
+    font-family: var(--font-heading);
+}

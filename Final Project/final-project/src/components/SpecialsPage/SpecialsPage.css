@@ -1,0 +1,9 @@
+.specials-page{
+    background-color: var(--color-text);
+    height: 100vh;
+    border: 2px solid purple;
+    display: flex;
+    margin-top: 5%;
+    flex-direction: column;
+    gap: 4rem;
+}

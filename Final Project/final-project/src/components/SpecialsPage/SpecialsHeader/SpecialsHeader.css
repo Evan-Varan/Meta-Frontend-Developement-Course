@@ -1,0 +1,9 @@
+.header-grid{
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    grid-template-rows: repeat(3,2rem);
+    gap:2rem;
+    border: 2px solid purple;
+    margin-left: 5%;
+    margin-right: 5%;
+}

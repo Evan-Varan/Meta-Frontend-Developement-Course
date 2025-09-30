@@ -1,0 +1,28 @@
+.btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2;
+    font-family: var(--font-body);
+    font-weight: bold;
+    font-size: large;
+    height: 3rem;
+    width: 14rem;
+    border-radius: 1rem;
+}
+
+.btn-primary{
+    background-color: var(--color-primary);
+    color: var(--color-text);
+}
+
+.btn-secondary{
+    background-color: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-secondary)
+}
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+}
