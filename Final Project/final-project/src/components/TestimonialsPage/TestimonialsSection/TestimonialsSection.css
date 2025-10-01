@@ -1,0 +1,11 @@
+.testimonials-page{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-text);
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}

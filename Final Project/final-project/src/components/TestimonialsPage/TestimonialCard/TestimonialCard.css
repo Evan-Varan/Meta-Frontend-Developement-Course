@@ -1,0 +1,46 @@
+.test-card-background {
+    border-radius: 0.5rem;
+    background:  linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),  /* tint */
+    url('../../../assets/restaurant.jpg') center/cover no-repeat;
+    flex-grow: 1;   /* can expand to fill available space */
+    flex-shrink: 1; /* can shrink if space is tight */
+    flex-basis: 25%; /* starting size before growing/shrinking */
+    display: flex;
+}
+.test-card-column{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    margin: 5%;
+}
+.profile-row{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.user-info-col{
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+}
+.user-img{
+    border-radius: 100%;
+    height: 3rem;
+    width: auto;
+    object-fit: cover;
+}
+.user-text{
+    font-family: var(--font-body);
+    color: var(--color-text);
+    font-weight: bold;
+}
+.year-text{
+    font-family: var(--font-body);
+    color: var(--color-text);
+    font-style: italic;
+}
+.test-description-text{
+    display: block;
+    font-family: var(--font-body);
+    color: var(--color-text);
+}

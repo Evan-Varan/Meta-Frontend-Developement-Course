@@ -9,9 +9,11 @@ code {
     monospace;
 }
 ul,
-ol,h1,h2,h3,p,button {
+ol,h1,h2,h3,h4,p,button,img {
   margin: 0;
   padding: 0;
+  margin-block-start: 0em;
+    margin-block-end: 0em;
   list-style: none;
   border: none;
 }

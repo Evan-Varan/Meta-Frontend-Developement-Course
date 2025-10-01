@@ -1,12 +1,41 @@
 import SpecialsHeader from "./SpecialsHeader/SpecialsHeader"
 import SpecialCard from "./SpecialCard/SpecialCard"
+import ChefBites from "../../assets/restauranfood.jpg"
+import Bruchetta from "../../assets/bruchetta.svg"
+import GreekSalad from "../../assets/greek-salad.jpg"
+import LemonDessert from "../../assets/lemon-dessert.jpg"
 import "./SpecialsPage.css"
 
 export default function SpecialsPage(){
     return(
         <div className="specials-page">
             <SpecialsHeader/>
-            <SpecialCard/>
+            <div className="specials-cards">
+            <SpecialCard 
+                name ="Chef Bites" 
+                description = "Start your journey with our chef’s signature bites—perfectly balanced, flavorful appetizers crafted to awaken your taste buds and set the stage for a memorable dining experience."
+                imgSrc = {ChefBites}
+                size = "large"
+            />
+            <SpecialCard 
+                name ="Bruchetta" 
+                description = "Experience the artistry of our kitchen with every plate. Our chefs bring passion and precision to each dish, ensuring your meal is as delightful to look at as it is to taste."
+                imgSrc = {Bruchetta}
+                size = "small"
+            />
+            <SpecialCard 
+                name ="Greek Salad" 
+                description = "Fresh, crisp, and bursting with flavor, our Greek Salad is a classic favorite. Featuring garden vegetables, briny olives, and tangy feta, it’s a refreshing option for any meal of the day."
+                imgSrc = {GreekSalad}
+                size = "large"
+            />
+            <SpecialCard 
+                name ="Lemon Dessert" 
+                description = "End on a sweet note with our signature lemon-infused dessert. Light, zesty, and indulgent, it’s the perfect balance of citrus brightness and creamy decadence."
+                imgSrc = {LemonDessert}
+                size = "small"
+            />
+            </div>
         </div>
     )
 }
