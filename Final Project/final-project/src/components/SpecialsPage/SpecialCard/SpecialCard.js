@@ -1,3 +1,4 @@
+import TertiaryButton from "../../Buttons/TertiaryButton/TertiaryButton"
 import "./SpecialCard.css"
 
 export default function SpecialCard({name,description,imgSrc,size}){
@@ -11,7 +12,7 @@ export default function SpecialCard({name,description,imgSrc,size}){
             }
             <h4>{name}</h4>
             <p className="description-tag">{description}</p>
-            <p className="delivery-tag">Order For Delivery</p>
+            <TertiaryButton text = "Order For Delivery"/>
         </div>
     )
 }

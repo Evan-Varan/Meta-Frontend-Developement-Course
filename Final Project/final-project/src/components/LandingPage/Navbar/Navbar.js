@@ -13,6 +13,7 @@ export default function Navbar(){
                 <li>FIND US</li>
                 <li>SUBSCRIBE</li>
                 <li>SOURCING</li>
+                <li>CONTACT</li>
             </ul>
         </nav>
     )

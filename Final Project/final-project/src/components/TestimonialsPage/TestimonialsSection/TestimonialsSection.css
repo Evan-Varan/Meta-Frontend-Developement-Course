@@ -9,3 +9,15 @@
     padding-left: 5%;
     padding-right: 5%;
 }
+.divider{
+    height: 1px;
+    width: 8rem;
+    background-color: var(--color-bg);
+    margin-bottom: 16px;
+}
+.header-spacing{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}

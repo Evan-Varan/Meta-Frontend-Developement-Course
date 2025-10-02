@@ -1,0 +1,13 @@
+.card-slider{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+.slider-divider{
+    height: 1px;
+    width: 20rem;
+    background-color: var(--color-secondary);
+    margin-bottom: 16px;
+}

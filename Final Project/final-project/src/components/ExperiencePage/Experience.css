@@ -1,0 +1,47 @@
+.experience{
+
+    background-color: var(--color-text);
+    height: 100vh;
+    display: flex;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    flex-direction: column;
+    gap: 5rem;
+justify-content: center;
+}
+
+.about-header-img{
+    height: 75%;
+    object-fit: cover;
+    margin: 0 auto;
+    width: 75%;
+    border-radius: 0.5rem;
+    align-content: center;
+    
+    margin-top: 2rem;
+    background:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),  /* tint */
+    url('../../assets/priscilla-du-preez-W3SEyZODn8U-unsplash.jpg') center/cover no-repeat;
+}
+.about-header-img-text{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+.about-header-img-text h2{
+    color: var(--color-text);
+    font-size: 2rem;
+}
+.about-header-img-text h3{
+    color: var(--color-text);
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+.about-header-img-text p {
+    color: var(--color-text);
+    font-size: 1rem;
+}

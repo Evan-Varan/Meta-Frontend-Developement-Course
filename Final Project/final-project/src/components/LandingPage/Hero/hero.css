@@ -1,14 +1,22 @@
 .hero{
-    padding-left: 15%;
-    padding-top: 5%;
+    /* padding-left: 15%;
+    padding-top: 5%; */
     display: flex;
     flex-direction: column;
-    /* border: 2px solid red; */
+    margin:auto;
+    gap:8rem;
+    
+}
+.inner-spacing{
+    align-items: center;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: auto;
     gap:2rem;
 }
-
 h1{
-    font-family: var(--font-heading);
+    font-family: var(--font-hero);
     font-size: 9rem;
     font-weight: normal;
     /* border: 2px solid purple; */
@@ -23,4 +31,10 @@ h1{
     display: flex;
     flex-direction: row;
     gap: 2rem;
+}
+.welcome-to{
+    margin-right: 15%;
+}
+.little-lemon{
+    margin-left: 15%;
 }

@@ -1,6 +1,6 @@
 .landing-bg{
-  background:  linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),  /* tint */
-    url('../../assets/restaurant.jpg') center/cover no-repeat;
+  background:  linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)),  /* tint */
+    url('../../assets/siyuan-g_V2rt6iG7A-unsplash.jpg') center/cover no-repeat;
   background-size: cover;
   background-position: center;
   color: white;

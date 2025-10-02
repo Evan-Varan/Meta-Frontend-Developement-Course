@@ -1,0 +1,14 @@
+.insta-card-col{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width:25%;
+}
+.insta-img{
+    width:100%;
+    height:auto;
+    object-fit: cover;
+}
+.insta-card-col h3{
+    font-size: large;
+}

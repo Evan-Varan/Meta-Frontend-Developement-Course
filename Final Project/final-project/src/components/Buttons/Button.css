@@ -3,26 +3,35 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 2;
+    gap: 1rem;
     font-family: var(--font-body);
-    font-weight: bold;
     font-size: large;
+    font-weight: 500;
     height: 3rem;
-    width: 14rem;
-    border-radius: 1rem;
+    min-width: 14rem;
+    max-width: 16rem;
+    width: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .btn-primary{
-    background-color: var(--color-primary);
+    background-color: transparent;
     color: var(--color-text);
+    border: 1px solid var(--color-text);
 }
 
 .btn-secondary{
     background-color: transparent;
-    color: var(--color-text);
-    border: 2px solid var(--color-secondary)
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary)
+}
+.btn-tertiary{
+    background-color: transparent;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary)
 }
 .icon {
-  width: 1.5em;
-  height: 1.5em;
+  width: 1em;
+  height: 1em;
 }

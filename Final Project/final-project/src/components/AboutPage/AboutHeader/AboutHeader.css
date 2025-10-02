@@ -1,0 +1,26 @@
+.about-header{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 50%;
+}
+.divider{
+    height: 1px;
+    width: 8rem;
+    background-color: var(--color-bg);
+    margin-bottom: 16px;
+}
+.description-tag{
+    color: var(--color-bg);
+    font-family: var(--font-body);
+    display: block;
+}
+.lllogo{
+    width:50%;
+    margin: 0 auto;
+}
+.text-chunk{
+    flex-direction: column;
+    display: flex;
+    gap: 1rem;
+}

@@ -5,8 +5,8 @@ export default function Button({text, Icon, variant = "primary", ...props}){
         {...props}
         className={`btn btn-${variant}`}
         >
-        {Icon && <Icon className = "icon"/>}
         {text}
+        {Icon && <Icon className = "icon"/>}
         </button>
     )
 }

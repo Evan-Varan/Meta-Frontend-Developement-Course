@@ -1,0 +1,8 @@
+.about-page{
+    display: flex;
+    flex-direction: row;
+    padding: 5%;
+    background-color: var(--color-text);
+    justify-content: center;
+    gap: 4rem;
+}

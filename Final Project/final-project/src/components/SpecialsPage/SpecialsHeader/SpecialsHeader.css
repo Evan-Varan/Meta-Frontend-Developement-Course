@@ -1,21 +1,9 @@
-.header-row{
-   display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-}
+
 .header-col-left{
     display: flex;
-    flex:1;
     flex-direction: column;
     gap: 1rem;
     justify-content: space-between;
-}
-.header-col-right{
-    display: flex;
-    flex:1;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 1rem;
 }
 .header-description{
     font-family: var(--font-body);
@@ -24,15 +12,30 @@
 }
 h2{
     font-family: var(--font-body);
-    color: var(--color-secondary);
+    color: var(--color-bg);
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: .1em;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 h3{
     font-family: var(--font-heading);
-    font-size: 5rem;
-    font-weight: 500;
-    color: var(--color-background);
+    font-size: xx-large;
+    color: var(--color-secondary);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: .05em;
+    text-transform: uppercase;
 }
 .logo{
     height: 4rem;
     width: auto;
+}
+.divider{
+    height: 1px;
+    width: 8rem;
+    background-color: var(--color-bg);
+    margin-bottom: 16px;
 }
