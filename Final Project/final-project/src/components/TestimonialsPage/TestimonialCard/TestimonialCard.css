@@ -1,7 +1,7 @@
 .test-card-background {
     border-radius: 0.5rem;
-    background:  linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),  /* tint */
-    url('../../../assets/jonathan-gong-izRQ870yJO8-unsplash.jpg') center/cover no-repeat;
+    background:  linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)),  /* tint */
+    url('../../../assets/menu1.jpg') center/cover no-repeat;
     flex-grow: 1;   /* can expand to fill available space */
     flex-shrink: 1; /* can shrink if space is tight */
     flex-basis: 25%; /* starting size before growing/shrinking */

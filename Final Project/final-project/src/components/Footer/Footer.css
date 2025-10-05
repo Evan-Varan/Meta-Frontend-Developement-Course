@@ -4,8 +4,8 @@
     gap: 2rem;
     background-color: var(--color-text);
     align-items: center;
-    border: 2px solid red;
     padding-top: 5rem;
+    padding-bottom:2rem;
 }
 .footer-row{
     display: flex;
@@ -13,19 +13,17 @@
     gap: 4rem;
     justify-content: end;
     width: 50%;
-    border: 2px solid red;
 }
 .info-col{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: baseline;
 }
 .divider{
     height: 1px;
     width: 8rem;
     background-color: var(--color-bg);
-    margin-bottom: 16px;
 }
 
 .info-col-text{
@@ -37,5 +35,11 @@
 .footer-col p{
     color: var(--color-bg);
     font-family: var(--font-body);
+    font-size: small;
     display: block;
+}
+.footer-col h2{
+    color: var(--color-bg);
+    font-family: var(--font-body);
+    font-weight: bold;
 }

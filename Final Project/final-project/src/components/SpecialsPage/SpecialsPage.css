@@ -6,9 +6,10 @@
     padding-right: 5rem;
     flex-direction: column;
     justify-content: center;
-    gap: 5rem;
+    gap: 2rem;
 }
 .specials-cards{
+    justify-content: center;
     display: flex;
     flex-direction: row;
     width: 100%;
