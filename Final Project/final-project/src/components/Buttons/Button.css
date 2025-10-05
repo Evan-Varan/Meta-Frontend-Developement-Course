@@ -13,7 +13,49 @@
     width: auto;
     padding-left: 1rem;
     padding-right: 1rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
 }
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0; /* shorthand for top:0; right:0; bottom:0; left:0 */
+  transform: translateY(100%);
+  transition: transform 0.25s ease;
+  z-index: 0; /* behind the text */
+}
+
+.btn span{
+    position: relative;
+    z-index: 1;
+    transition: color 0.25s ease;
+}
+
+
+.btn:hover::after {
+    transform: translateY(0);
+}
+
+.btn-primary:hover span{
+    color: var(--color-bg);
+}
+.btn-primary::after{
+    background-color: var(--color-text);
+}
+.btn-secondary:hover span{
+    color: var(--color-bg);
+}
+.btn-secondary::after{
+    background-color: var(--color-primary);
+}
+.btn-tertiary:hover span{
+    color: var(--color-text);
+}
+.btn-tertiary::after{
+    background-color: var(--color-secondary);
+}
+
 
 .btn-primary{
     background-color: transparent;

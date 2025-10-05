@@ -1,12 +1,14 @@
 
 export default function Button({text, Icon, variant = "primary", ...props}){
     return(
+
         <button
         {...props}
         className={`btn btn-${variant}`}
         >
-        {text}
+        <span>{text}</span>
         {Icon && <Icon className = "icon"/>}
         </button>
+        
     )
 }
