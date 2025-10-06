@@ -1,5 +1,6 @@
 import "./Footer.css"
 import { SocialIcon } from 'react-social-icons';
+import videoSrc from "../../assets/854750-hd_1920_1080_25fps.mp4"
 
 export default function Footer({
     landingPageRef,
@@ -12,7 +13,12 @@ export default function Footer({
 ){
     return(
         <footer className="footer-col">
-            <h1>Little Lemon</h1>
+            <div className="header-row">
+                <h3 className="little-h3">Little</h3>
+                <video src = {videoSrc} className="video" muted loop autoPlay/>
+                <h3 className="lemon-h3">Lemon</h3>
+            </div>
+            
             <div className="footer-row">
                 <div className="info-col">
                     <div className="divider"></div>
