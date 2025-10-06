@@ -16,7 +16,9 @@ header{
   margin: 0 auto;
 }
 .border-line{
-  border: 0.1rem solid white;
+    width: 100%;
+    height: 1px;
+    background: var(--color-text);
 }
 main{
   justify-content: space-between;

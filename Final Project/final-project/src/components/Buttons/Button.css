@@ -73,7 +73,13 @@
     color: var(--color-secondary);
     border: 1px solid var(--color-secondary)
 }
-.icon {
+
+.btn .icon{
   width: 1em;
   height: 1em;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+.btn:hover .icon {
+  fill: var(--color-text); /* match span hover color */
+  z-index: 1;
 }

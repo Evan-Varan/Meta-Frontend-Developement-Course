@@ -3,6 +3,38 @@ li{
     display: flex;
     font-family: var(--font-body);
     font-size: medium;
+    position: relative;
+    display: inline-block; /* makes width match content properly */
+    cursor: pointer;
+    overflow: hidden;
+}
+li::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--color-primary);
+    z-index: -1;
+}
+li:hover::before{
+  animation: slideIn 0.5s forwards;
+  z-index: 1;
+}
+li:not(:hover)::before{
+  animation: slideOut 0.5s forwards;
+   z-index: 1;
+}
+
+@keyframes slideIn{
+  from {transform:translateX(-100%);}
+  to {transform: translateX(0%);}
+}
+
+@keyframes slideOut{
+  from {transform: translateX(0%);}
+  to {transform: translateX(110%);}
 }
 
 /* 
