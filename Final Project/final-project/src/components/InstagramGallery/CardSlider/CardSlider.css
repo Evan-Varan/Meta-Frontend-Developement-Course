@@ -3,12 +3,21 @@
     flex-direction: row;
     gap: 2rem;
     align-items: center;
-    justify-content: center;
+    position: relative;
 }
-.slider-divider{
+.slider-divider-background{
     height: 2px;
     width: 20rem;
-    background-color: var(--color-secondary);
+    border-radius: 20%;
+    background-color: var(--color-muted);
+    position: relative;
+}
+.slider-divider-progress{
+    position: absolute;
+    height: 2px;
+    width: 0rem;
+    border-radius: 20%;
+    background-color: var(--color-bg);
 }
 .arrow{
     border-radius: 100%;
