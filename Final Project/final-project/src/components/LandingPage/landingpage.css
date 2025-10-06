@@ -27,4 +27,14 @@ main{
   margin-right: 5%;
   flex-direction: column;
   flex: 1;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 2s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

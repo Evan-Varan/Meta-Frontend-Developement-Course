@@ -1,9 +1,9 @@
 .specials-page{
     background-color: var(--color-text);
     display: flex;
-    padding-top: 5rem;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-top: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
     flex-direction: column;
     justify-content: center;
     gap: 2rem;

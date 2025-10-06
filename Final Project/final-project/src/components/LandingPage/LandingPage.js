@@ -3,11 +3,27 @@ import Hero from "./Hero/Hero"
 import Awards from "./Awards/Awards"
 import './landingpage.css'
 
-export default function LandingPage(){
+export default function LandingPage({
+    landingPageRef,
+    specialsPageRef,
+    aboutPageRef,
+    testimonialsSectionRef,
+    experienceRef,
+    instagramGalleryRef,
+    scrollToSection}
+){
     return(
         <div className="landing-bg">
             <header>
-                <Navbar/>
+                <Navbar
+                    landingPageRef = {landingPageRef}
+                    specialsPageRef = {specialsPageRef}
+                    aboutPageRef = {aboutPageRef}
+                    testimonialsSectionRef = {testimonialsSectionRef}
+                    experienceRef = {experienceRef}
+                    instagramGalleryRef = {instagramGalleryRef}
+                    scrollToSection = {scrollToSection}
+                />
             </header>
             <div className="border-line"></div>
             <main>

@@ -4,6 +4,8 @@ import ChefBites from "../../assets/restauranfood.jpg"
 import Bruchetta from "../../assets/bruchetta.svg"
 import GreekSalad from "../../assets/greek-salad.jpg"
 import LemonDessert from "../../assets/lemon-dessert.jpg"
+import chefBitesVideo from "../../assets/3298720-uhd_2160_4096_25fps.mp4"
+import greekSaladVideo from "../../assets/4255507-uhd_2160_4096_25fps.mp4"
 import "./SpecialsPage.css"
 
 export default function SpecialsPage(){
@@ -15,6 +17,7 @@ export default function SpecialsPage(){
                 name ="Chef Bites" 
                 description = "Start your journey with our chef’s signature bites—perfectly balanced, flavorful appetizers crafted to awaken your taste buds and set the stage for a memorable dining experience."
                 imgSrc = {ChefBites}
+                videoSrc={chefBitesVideo}
                 size = "large"
             />
             <SpecialCard 
@@ -27,6 +30,7 @@ export default function SpecialsPage(){
                 name ="Greek Salad" 
                 description = "Fresh, crisp, and bursting with flavor, our Greek Salad is a classic favorite. Featuring garden vegetables, briny olives, and tangy feta, it’s a refreshing option for any meal of the day."
                 imgSrc = {GreekSalad}
+                videoSrc={greekSaladVideo}
                 size = "large"
             />
             <SpecialCard 

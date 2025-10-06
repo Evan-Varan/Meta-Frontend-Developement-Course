@@ -3,8 +3,12 @@
     flex-direction: column;
     gap: 1rem;
     width: 20%;
+    height: 50rem;
+    position: relative;
+    overflow: hidden;
 }
 .image-large {
+    display: block;
     width: 100%;
     height: 75%;
     object-fit: cover;
@@ -12,10 +16,42 @@
 }
 
 .image-small {
+    display: block;
     width: 100%;
     height: 50%;
     object-fit: cover;
     border-radius: 0.5rem;
+}
+
+.video-large {
+    display: block;
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.video-small {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.card-column video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+.card-column:hover img {
+  opacity: 0;
+}
+
+.card-column:hover video {
+  opacity: 1;
 }
 
 h4{

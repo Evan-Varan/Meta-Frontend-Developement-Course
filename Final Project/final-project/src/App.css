@@ -1,6 +1,7 @@
 .App-header {
-  
   display: flex;
   flex-direction: column;
-  
+}
+.scroll-section {
+  scroll-margin-top: -18vh;
 }
