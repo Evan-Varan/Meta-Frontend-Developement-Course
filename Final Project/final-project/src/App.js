@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="App-header">
-      <div className= "scroll-section" ref={landingPageRef}>
+      <div className= "scroll-section-home" ref={landingPageRef}>
         <LandingPage 
           landingPageRef = {landingPageRef}
           specialsPageRef = {specialsPageRef}
@@ -36,22 +36,30 @@ function App() {
           scrollToSection = {scrollToSection}
         />
       </div>
-      <div className= "scroll-section" ref={specialsPageRef}>
+      <div className= "scroll-section-specials" ref={specialsPageRef}>
         <SpecialsPage/>
       </div>
-      <div ref={aboutPageRef}>
+      <div className= "scroll-section-testimonials" ref={aboutPageRef}>
         <AboutPage/>
       </div>
-      <div className= "scroll-section" ref={testimonialsSectionRef}>
+      <div className= "scroll-section-testimonials" ref={testimonialsSectionRef}>
         <TestimonialsSection/>
       </div>
-      <div className= "scroll-section" ref={experienceRef}>
+      <div className= "scroll-section-experience" ref={experienceRef}>
         <Experience/>
       </div>
-      <div className= "scroll-section" ref={instagramGalleryRef}>
+      <div className= "scroll-section-gallery" ref={instagramGalleryRef}>
         <InstagramGallery/>
       </div>
-      <Footer/>
+      <Footer
+      landingPageRef = {landingPageRef}
+          specialsPageRef = {specialsPageRef}
+          aboutPageRef = {aboutPageRef}
+          testimonialsSectionRef = {testimonialsSectionRef}
+          experienceRef = {experienceRef}
+          instagramGalleryRef = {instagramGalleryRef}
+          scrollToSection = {scrollToSection}
+      />
     </div>
   );
 }

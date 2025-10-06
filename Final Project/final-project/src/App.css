@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
 }
-.scroll-section {
+.scroll-section-specials,
+.scroll-section-testimonials,
+.scroll-section-gallery,
+.scroll-section-experience {
   scroll-margin-top: -18vh;
 }

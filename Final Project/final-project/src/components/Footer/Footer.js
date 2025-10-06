@@ -1,6 +1,15 @@
 import "./Footer.css"
+import { SocialIcon } from 'react-social-icons';
 
-export default function Footer(){
+export default function Footer({
+    landingPageRef,
+    specialsPageRef,
+    aboutPageRef,
+    testimonialsSectionRef,
+    experienceRef,
+    instagramGalleryRef,
+    scrollToSection}
+){
     return(
         <footer className="footer-col">
             <h1>Little Lemon</h1>
@@ -17,30 +26,52 @@ export default function Footer(){
                 <div className="info-col">
                     <div className="divider"></div>
                     <h2>SITEMAP</h2>
-                    <div className="info-text-col">
-                        <p>HOME</p>
-                        <p>SPECIALS</p>
-                        <p>ABOUT</p>
-                    </div>
+                    <ul className="info-text-col">
+                        <li onClick={() => scrollToSection(landingPageRef)}>HOME</li>
+                        <li onClick={() => scrollToSection(specialsPageRef)}>SPECIALS</li>
+                        <li onClick={() => scrollToSection(aboutPageRef)}>ABOUT</li>
+                    </ul>
                 </div>
                 <div className="info-col">
                     <div className="divider"></div>
                     <h2>SITEMAP</h2>
-                    <div className="info-text-col">
-                        <p>TESTIMONIALS</p>
-                        <p>EXPERIENCE</p>
-                        <p>GALLERY</p>
-                    </div>
+                    <ul className="info-text-col">
+                        <li onClick={() => scrollToSection(testimonialsSectionRef)}>TESTIMONIALS</li>
+                        <li onClick={() => scrollToSection(experienceRef)}>EXPERIENCE</li>
+                        <li onClick={() => scrollToSection(instagramGalleryRef)}>GALLERY</li>
+                    </ul>
                 </div>
                 
                 <div className="info-col">
                     <div className="divider"></div>
                     <h2>FOLLOW US</h2>
-                    <div className="info-text-col">
-                        <p>INSTAGRAM</p>
-                        <p>FACEBOOK</p>
-                        <p>TIKTOK</p>
-                    </div>
+                    <ul className="social-col">
+                        <div className="social-row">
+                            <SocialIcon
+                                url="https://instagram.com/yourprofile"
+                                style={{ height: 20, width: 20 }}
+                                borderRadius="0"          // square corners
+                            />
+                            <li>INSTAGRAM</li>
+                        </div>
+                        
+                        <div className="social-row">
+                            <SocialIcon
+                                url="https://facebook.com/yourprofile"
+                                style={{ height: 20, width: 20 }}
+                                borderRadius="0"          // square corners
+                            />
+                            <li>FACEBOOK</li>
+                        </div>
+                        <div className="social-row">
+                            <SocialIcon
+                                url="https://tiktok.com/yourprofile"
+                                style={{ height: 20, width: 20 }}
+                                borderRadius="0"          // square corners
+                            />
+                            <li>TIKTOK</li>
+                        </div>
+                    </ul>
                 </div>
             </div>
         </footer>

@@ -32,14 +32,28 @@
     gap: 1rem;
     align-items: baseline;
 }
+.footer-col li,
 .footer-col p{
     color: var(--color-bg);
     font-family: var(--font-body);
     font-size: small;
+    line-height: 150%;
     display: block;
 }
 .footer-col h2{
     color: var(--color-bg);
     font-family: var(--font-body);
     font-weight: bold;
+}
+.social-row{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+}
+.social-col{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: baseline;
 }
