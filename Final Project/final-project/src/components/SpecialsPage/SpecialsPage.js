@@ -6,6 +6,8 @@ import GreekSalad from "../../assets/greek-salad.jpg"
 import LemonDessert from "../../assets/lemon-dessert.jpg"
 import chefBitesVideo from "../../assets/3298720-uhd_2160_4096_25fps.mp4"
 import greekSaladVideo from "../../assets/4255507-uhd_2160_4096_25fps.mp4"
+import bruchettaVideo from "../../assets/3196463-uhd_3840_2160_25fps.mp4"
+import lemonDessertVideo from "../../assets/3325984-hd_1920_1080_24fps.mp4"
 import "./SpecialsPage.css"
 
 export default function SpecialsPage(){
@@ -24,6 +26,7 @@ export default function SpecialsPage(){
                 name ="Bruchetta" 
                 description = "Experience the artistry of our kitchen with every plate. Our chefs bring passion and precision to each dish, ensuring your meal is as delightful to look at as it is to taste."
                 imgSrc = {Bruchetta}
+                videoSrc={bruchettaVideo}
                 size = "small"
             />
             <SpecialCard 
@@ -37,6 +40,7 @@ export default function SpecialsPage(){
                 name ="Lemon Dessert" 
                 description = "End on a sweet note with our signature lemon-infused dessert. Light, zesty, and indulgent, it’s the perfect balance of citrus brightness and creamy decadence."
                 imgSrc = {LemonDessert}
+                videoSrc={lemonDessertVideo}
                 size = "small"
             />
             </div>

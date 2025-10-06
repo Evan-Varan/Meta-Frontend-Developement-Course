@@ -6,8 +6,13 @@
     justify-content: center;
 }
 .slider-divider{
-    height: 1px;
+    height: 2px;
     width: 20rem;
     background-color: var(--color-secondary);
-    margin-bottom: 16px;
+}
+.arrow{
+    border-radius: 100%;
+    cursor: pointer;
+    border: 2px solid var(--color-bg);
+    padding: 1%;
 }

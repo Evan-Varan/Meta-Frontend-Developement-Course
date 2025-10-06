@@ -38,5 +38,6 @@ h3{
     height: 1px;
     width: 8rem;
     background-color: var(--color-bg);
-    margin-bottom: 16px;
+    margin: 0 0;
+     padding: 0 0;
 }

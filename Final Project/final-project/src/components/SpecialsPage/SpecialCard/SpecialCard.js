@@ -6,11 +6,11 @@ export default function SpecialCard({name,description,imgSrc, videoSrc, size}){
         <div className="card-column">
             {size == "large" 
             ?
-            <>
+            <div className="media-wrapper">
                 <img src = {imgSrc} className="image-large"/> 
                 <video src = {videoSrc} className="video-large" muted loop autoPlay 
     preload="metadata"></video>
-            </>
+            </div>
             :
             <>
                 <img src = {imgSrc} className="image-small"/> 
