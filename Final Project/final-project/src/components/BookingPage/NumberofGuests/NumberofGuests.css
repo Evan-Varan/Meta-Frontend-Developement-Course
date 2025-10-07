@@ -1,0 +1,31 @@
+.nog-col{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    height: 90vh;
+    justify-content: start;
+    align-items: center;
+}
+.nog-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.nog-grid > button{
+    padding: 2rem;
+    border: 1px solid var(--color-muted);
+    background-color: var(--color-white);
+    font-family: var(--font-body);
+    cursor: pointer;
+    font-size: large;
+}
+.nog-grid > button:hover{
+    border-color: var(--color-bg);
+    
+}
+
+.nog-col > p {
+    font-family: var(--font-body);
+}
+.nog-col > h2 {
+    font-size: x-large;
+}

@@ -7,6 +7,7 @@ import Experience from './components/ExperiencePage/Experience';
 import InstagramGallery from "./components/InstagramGallery/InstagramGallery"
 import Footer from './components/Footer/Footer';
 import { useRef, useState } from 'react';
+import BookingPage from './components/BookingPage/BookingPage';
 
 
 
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <div className="App-header">
+      <BookingPage/>
       <div className= "scroll-section-home" ref={landingPageRef}>
         <LandingPage 
           landingPageRef = {landingPageRef}

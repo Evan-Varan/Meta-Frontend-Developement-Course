@@ -15,7 +15,7 @@
 .insta-card-col h3{
     font-size: large;
 }
-.fade-in {
+/* .fade-in {
   opacity: 0;
   animation: fadeIn 0.3s ease forwards;
 }
@@ -23,4 +23,4 @@
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
-}
+} */

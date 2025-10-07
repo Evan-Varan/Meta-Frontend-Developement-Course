@@ -1,0 +1,19 @@
+.subheader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+.vertical-line{
+    height: 50%;
+    width: 1px;
+    background-color: var(--color-primary);
+    font-weight: bold;
+    margin: 0 0;
+    padding: 0 0;
+}
+.subheader p{
+    color: var(--color-primary);
+    font-weight: bold;
+}
