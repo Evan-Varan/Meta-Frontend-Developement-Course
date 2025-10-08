@@ -1,25 +1,83 @@
 import "./ContactInfo.css"
 import TertiaryButton from "../../Buttons/TertiaryButton/TertiaryButton"
 import { BiError } from "react-icons/bi";
+import { useState } from "react";
 
 
 /*TODO:
     Regex for email and phone
+    
+    Must contain an @ symbol.
+
+    Must have at least one period (.) in the domain portion.
+
+    Must not contain invalid characters (spaces, commas, semicolons, etc.).
+
+    Must not start or end with special characters.
+
+    Local part (before @) ≤ 64 chars, domain part ≤ 255 chars.
 */
 
-
-
 export default function ContactInfo({setStep}){
+    const [emailErrorText, setEmailErrorText] = useState("");
+    const [email, setEmail] = useState("");
+    const [hasSubmitted, setHasSubmitted] = useState(false);
 
     const handleFormSubmission = (e) => {
-    e.preventDefault();                 // keep SPA behavior
-    const form = e.currentTarget;       // the <form>
+        e.preventDefault();                 // keep SPA behavior
+        const form = e.currentTarget;       // the <form>
+        const email = form.email.value.trim(); //from name = "email"
 
-    const valid = form.checkValidity();  // run native validation logic
-    if(valid){
-        setStep(1);                          // proceed when everything is valid
+        setHasSubmitted(true);
+        if(!validateEmail(email)){
+            alert("Invalid Email!")
+        }
+        else{
+            alert("valid Email")
+        }
+
+        const valid = form.checkValidity() && validateEmail(email);  // run native validation logic
+        if(valid){
+            setStep(1);                          // proceed when everything is valid
+        }
+    };
+    const handleEmailChange = (e) => {
+        const value = e.target.value;
+        setEmail(value);
+
+        const form = e.target.form
+        if (form && form.classList.contains("was-validated")) {
+            validateEmail(value);
+        }
     }
-  };
+
+    function validateEmail(email){
+        const regex3CharsBeforeAt = /^[A-Za-z0-9._%+-]{3,}@/;
+        const regexDomainAfterAt = /@[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?/;
+        const regexDotAndTwoLetterDomain = /\.[A-Za-z]{2,}$/;
+        const regexFull = /^[A-Za-z0-9._%+-]{3,}@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+        if(!regex3CharsBeforeAt.test(email)){
+            setEmailErrorText("Please enter at least 3 characters before the @ sign.")
+            return false;
+        }
+        else if(!regexDomainAfterAt.test(email)){
+            setEmailErrorText("Please enter a domain after the @ sign")
+            return false;
+        }
+        else if(!regexDotAndTwoLetterDomain.test(email)){
+            setEmailErrorText("Please enter a domain with at least two characters")
+            return false;
+        }
+        else if(!regexFull.test(email)){
+            setEmailErrorText("Please enter a valid email address")
+            return false;
+        }
+        else{
+             setEmailErrorText(""); // clear message when valid
+            return true;
+        }
+    }
 
 
     return(
@@ -47,10 +105,10 @@ export default function ContactInfo({setStep}){
                 </div>
                 <div className="input-group">
                     <label>Email</label>
-                    <input type = "email" placeholder ="Email" id="email" name="email" required autoComplete = "email" className="contact-input"></input>
+                    <input value = {email} onChange={handleEmailChange} type = "email" placeholder ="Email" id="email" name="email" required autoComplete = "email" className="contact-input"></input>
                     <div className="error-message">
                             <BiError color = "#e74c3c"/>
-                            <p>Please enter your email</p>
+                            <p>{emailErrorText}</p>
                     </div>
                 </div>
                 <div className="input-group">
