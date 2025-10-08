@@ -1,0 +1,63 @@
+.contact-col{
+    height: 90vh;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+.contact-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+}
+.contact-input{
+    padding: 0.5rem;
+    width: 100%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    outline: none; /*remove border on click */
+    border-bottom: 1px solid var(--color-muted);
+    box-sizing: border-box; /* this fixes overflow */
+    font-family: var(--font-body);
+}
+
+/* .contact-input:placeholder-shown {
+  background-color: #fff8e1;
+} */
+.contact-input::placeholder {
+  opacity: 0.8;
+  font-size: 1rem;
+}
+.contact-col > h2 {
+    font-size: x-large;
+    width: 100%;
+    text-align: center;
+}
+.input-group{
+    width: 100%;
+}
+.input-group label{
+    opacity: 0;
+    font-size: small;
+    font-family: var(--font-body);
+    color: var(--color-bg);
+}
+.contact-input:focus::placeholder{
+    opacity: 0;
+}
+.input-group:focus-within label{
+    opacity: 1;
+}
+.input-group:has(input:not(:placeholder-shown)) label {
+  opacity: 1;
+}
+
+/* Only style fields after user attempted to submit */
+form.was-validated input.contact-input:invalid {
+  border-bottom: 1px solid #e74c3c !important;
+}
+

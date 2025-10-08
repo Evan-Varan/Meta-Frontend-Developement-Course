@@ -1,7 +1,7 @@
 import Button from "../Button";
 
-export default function SecondaryButton({text, ...props}){
+export default function SecondaryButton({text,type, ...props}){
     return(
-        <Button text = {text} variant = "secondary" {...props}/>
+        <Button text = {text} type = {type} variant = "secondary" {...props}/>
     )
 }

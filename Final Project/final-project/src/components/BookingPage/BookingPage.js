@@ -22,13 +22,13 @@ export default function BookingPage(){
     }
     function renderStep(){
         if(step == 1){
-            return <NumberofGuests/>
+            return <NumberofGuests stepForwards = {stepForwards}/>
         }
         else if(step == 2){
             return <ChooseDate/>
         }
         else if(step == 3){
-            return <ContactInfo/>
+            return <ContactInfo setStep={setStep}/>
         }
         else{
             return null
@@ -36,7 +36,7 @@ export default function BookingPage(){
     }
     return(
         <div className="booking-page">
-            <Header setStep= {setStep} stepForwards = {stepForwards} stepBackwards= {stepBackwards}/>
+            <Header step ={step} setStep= {setStep} stepForwards = {stepForwards} stepBackwards= {stepBackwards}/>
             {renderStep()}
         </div>
     )

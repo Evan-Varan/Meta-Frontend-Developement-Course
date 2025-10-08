@@ -2,7 +2,7 @@ import SubHeader from "../SubHeader/SubHeader";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
 import "./Header.css"
-export default function Header({setStep, stepForwards, stepBackwards}){
+export default function Header({step, setStep, stepForwards, stepBackwards}){
     return(
         <div className="header-col">
             <div className="main-header-row">
@@ -11,7 +11,7 @@ export default function Header({setStep, stepForwards, stepBackwards}){
                 <FaArrowRightLong className="header-arrow" onClick={() => stepForwards()}/>
             </div>
             <div className="slider-divider-background">
-                <div className="slider-divider-progress"></div>
+                <div className="slider-divider-progress" style ={{width : `${(100/3) * step}%`}}></div>
             </div>
             <div className="secondary-header-row">
                 <SubHeader number = "1" name = "Number of guests" onClick={() => setStep(1)}/>
