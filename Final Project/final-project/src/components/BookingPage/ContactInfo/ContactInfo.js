@@ -3,74 +3,153 @@ import TertiaryButton from "../../Buttons/TertiaryButton/TertiaryButton"
 import { BiError } from "react-icons/bi";
 import { useState } from "react";
 
-
-/*TODO:
-    Regex for email and phone
-    
-    Must contain an @ symbol.
-
-    Must have at least one period (.) in the domain portion.
-
-    Must not contain invalid characters (spaces, commas, semicolons, etc.).
-
-    Must not start or end with special characters.
-
-    Local part (before @) ≤ 64 chars, domain part ≤ 255 chars.
-*/
-
 export default function ContactInfo({setStep}){
-    const [emailErrorText, setEmailErrorText] = useState("");
+    const [firstName, setFirstName] = useState ("");
+    const [firstNameErrorText, setFirstNameErrorText] = useState("");
+
+    const [familyName, setFamilyName] = useState ("");
+    const [familyNameErrorText, setFamilyNameErrorText] = useState("");
+    
     const [email, setEmail] = useState("");
+    const [emailErrorText, setEmailErrorText] = useState("");
+
+    const [phone, setPhone] = useState("");
+    const [phoneErrorText, setPhoneErrorText] = useState("");
+
     const [hasSubmitted, setHasSubmitted] = useState(false);
+
 
     const handleFormSubmission = (e) => {
         e.preventDefault();                 // keep SPA behavior
         const form = e.currentTarget;       // the <form>
-        const email = form.email.value.trim(); //from name = "email"
 
         setHasSubmitted(true);
-        if(!validateEmail(email)){
-            alert("Invalid Email!")
-        }
-        else{
-            alert("valid Email")
-        }
 
-        const valid = form.checkValidity() && validateEmail(email);  // run native validation logic
-        if(valid){
+        const isEmailValid = validateEmail(email);
+        const isPhoneValid = validatePhone(phone);
+        const isFirstNameValid = validateFirstName(firstName);
+        const isFamilyNameValid = validateFamilyName(familyName);
+
+        if(isEmailValid && isPhoneValid && isFirstNameValid && isFamilyNameValid){
+            const backendPhoneNumber = normalizePhone(phone);
+            console.log(backendPhoneNumber);
             setStep(1);                          // proceed when everything is valid
         }
     };
+    
+
+    function validatePhone(phone){
+        const digitsOnly = phone.replace(/\D/g, ""); //remove all non digits chars
+        if(!/^[0-9()\s+.-]*$/.test(phone)){ //fails if contains invalid chars (extra check)
+            setPhoneErrorText("Phone number contains unallowed characters.")
+            return false;
+        }
+        else if(digitsOnly.length < 10){
+            setPhoneErrorText("Phone number must contain at least 10 digits.")
+            return false;
+        }
+        else if(digitsOnly.length > 15){
+            setPhoneErrorText("Phone number can contain a max of 15 digits.")
+        }
+        else{
+            setPhoneErrorText("");
+            return true;
+        }
+    }
+    
+    //we would return the normalize digit string (5121234567) for the backend
+    function normalizePhone(phone) {
+        return phone.replace(/\D/g, "");
+    }
+
+    const handlePhoneChange = (e) => {
+        const value = e.target.value;
+        setPhone(value);
+        validatePhone(value);
+    }
+
     const handleEmailChange = (e) => {
         const value = e.target.value;
         setEmail(value);
+        validateEmail(value);
+    }
 
-        const form = e.target.form
-        if (form && form.classList.contains("was-validated")) {
-            validateEmail(value);
+    const handleFirstNameChange = (e) => {
+        const value = e.target.value;
+        setFirstName(value);
+        validateFirstName(value);
+    }
+    const handleFamilyNameChange = (e) => {
+        const value = e.target.value;
+        setFamilyName(value);
+        validateFamilyName(value);
+    }
+    function validateFirstName(firstName){
+        if (!firstName) {
+            setFirstNameErrorText("Name is required");
+            return false;
+        } else if (firstName.length < 2) {
+            setFirstNameErrorText("Name must be at least 2 characters");
+            return false;
+        } else if (!/^[a-zA-Z\s'-]+$/.test(firstName)) {
+            setFirstNameErrorText("Name Contains invalid characters");
+            return false;
         }
+        setFirstNameErrorText("");
+        return true;
+    }
+    function validateFamilyName(familyName){
+        if (!familyName.trim()) {
+            setFamilyNameErrorText("Name is required");
+            return false;
+        } else if (familyName.trim().length < 2) {
+            setFamilyNameErrorText("Name must be at least 2 characters");
+            return false;
+        } else if (!/^[a-zA-Z\s'-]+$/.test(familyName)) {
+            setFamilyNameErrorText("Name Contains invalid characters");
+            return false;
+        }
+        setFamilyNameErrorText("");
+        return true;
     }
 
     function validateEmail(email){
-        const regex3CharsBeforeAt = /^[A-Za-z0-9._%+-]{3,}@/;
-        const regexDomainAfterAt = /@[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?/;
-        const regexDotAndTwoLetterDomain = /\.[A-Za-z]{2,}$/;
-        const regexFull = /^[A-Za-z0-9._%+-]{3,}@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+        const checks = {
+            hasBeforeAt : /^[^@]+/, //Ensures there’s at least one character before the @ symbol.
+            hasAt : /@/, //Makes sure there’s an @ present at all.
+            hasDomain : /@[^@]+$/, //Checks that there’s something after the @, meaning a domain name exists.
+            hasDot: /@[^@]*\./, //Verifies the domain includes at least one dot separating the domain and TLD (with 2 chars) (like example.com).
+            validTopLevelDomain: /\.(com|net|org|io|edu|gov|co)$/i, //Restricts allowed top-level domains to a known whitelist.
+            validCharacters : /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~@-]*$/, //Ensures there are no illegal symbols like ,, ", (, or ).
+            noSpaces : /\s/, //no spaces
+        };
 
-        if(!regex3CharsBeforeAt.test(email)){
-            setEmailErrorText("Please enter at least 3 characters before the @ sign.")
+        if(!checks.hasBeforeAt.test(email)){
+            setEmailErrorText("Missing text before @")
             return false;
         }
-        else if(!regexDomainAfterAt.test(email)){
-            setEmailErrorText("Please enter a domain after the @ sign")
+        else if(!checks.hasAt.test(email)){
+            setEmailErrorText("Missing @ symbol")
             return false;
         }
-        else if(!regexDotAndTwoLetterDomain.test(email)){
-            setEmailErrorText("Please enter a domain with at least two characters")
+        else if(!checks.hasDomain.test(email)){
+            setEmailErrorText("Missing domain name")
             return false;
         }
-        else if(!regexFull.test(email)){
-            setEmailErrorText("Please enter a valid email address")
+        else if(!checks.hasDot.test(email)){
+            setEmailErrorText("Domain must include a dot (e.g. .com)")
+            return false;
+        }
+        else if(!checks.validTopLevelDomain.test(email)){
+            setEmailErrorText("Invalid top-level domain")
+            return false;
+        }
+        else if(!checks.validCharacters.test(email)){
+            setEmailErrorText("Contains invalid characters")
+            return false;
+        }
+        else if(checks.noSpaces.test(email)){
+            setEmailErrorText("Email cannot contain spaces")
             return false;
         }
         else{
@@ -88,28 +167,29 @@ export default function ContactInfo({setStep}){
                 <div className="contact-row">
                     <div className="input-group">
                         <label>First Name</label>
-                        <input type = "text" placeholder ="First Name" id="first-name" minLength ="2" name="first-name" required autoComplete = "given-name" className="contact-input"></input>
-                        <div className="error-message">
+                        <input value = {firstName} onChange = {handleFirstNameChange} type = "text" placeholder ="First Name" id="first-name" minLength ="2" name="first-name" required autoComplete = "given-name" className={`contact-input ${firstNameErrorText ? "error" : ""}`}></input>
+                        <div className={`error-message ${firstNameErrorText ? 'active' : ''}`}>
                             <BiError color = "#e74c3c"/>
-                            <p>Please enter your first name</p>
+                            <p>{firstNameErrorText}</p>
                         </div>
                     </div>
                     <div className="input-group">
                         <label>Last Name</label>
-                        <input type = "text" placeholder ="Last Name" id="last-name" minLength ="2" name="last-name" required autoComplete = "family-name" className="contact-input"></input>
-                        <div className="error-message">
+                        <input value = {familyName} onChange = {handleFamilyNameChange} type = "text" placeholder ="Last Name" id="last-name" minLength ="2" name="last-name" required autoComplete = "family-name" className={`contact-input ${familyNameErrorText ? "error" : ""}`}></input>
+                        <div className={`error-message ${familyNameErrorText ? 'active' : ''}`}>
                             <BiError color = "#e74c3c"/>
-                            <p>Please enter your last name</p>
+                            <p>{familyNameErrorText}</p>
                         </div>
                     </div>
                 </div>
                 <div className="input-group">
                     <label>Email</label>
-                    <input value = {email} onChange={handleEmailChange} type = "email" placeholder ="Email" id="email" name="email" required autoComplete = "email" className="contact-input"></input>
-                    <div className="error-message">
-                            <BiError color = "#e74c3c"/>
-                            <p>{emailErrorText}</p>
+                    <input value = {email} inputMode = "email" onChange={handleEmailChange} type = "text" placeholder ="Email" id="email" name="email" required autoComplete = "email" className={`contact-input ${emailErrorText ? "error" : ""}`}></input>
+                    <div className={`error-message ${emailErrorText ? 'active' : ''}`}>
+                        <BiError color="#e74c3c"/>
+                        <p id="email-error">{emailErrorText}</p>
                     </div>
+
                 </div>
                 <div className="input-group">
                     <label>Company - Optional</label>
@@ -117,16 +197,15 @@ export default function ContactInfo({setStep}){
                 </div>
                 <div className="input-group">
                     <label>Phone</label>
-                    <input type = "tel" placeholder ="Phone"  id="phone" minLength ="10" name="phone" required autoComplete = "tel" pattern="[0-9]{10}" className="contact-input"></input>
-                    <div className="error-message">
-                        <BiError color = "#e74c3c"/>
-                        <p>Please enter your phone number</p>
+                    <input value = {phone} type = "text" placeholder ="Phone" onChange={handlePhoneChange} id="phone" minLength ="10" name="phone" required autoComplete = "tel" pattern="[0-9]{10}" className={`contact-input ${phoneErrorText ? "error" : ""}`}></input>
+                    <div className={`error-message ${phoneErrorText ? 'active' : ''}`}>
+                        <BiError color="#e74c3c"/>
+                        <p id="email-error">{phoneErrorText}</p>
                     </div>
                 </div>
             </div>
             <TertiaryButton
             type="submit"
-            onClick={(e) => e.currentTarget.form.classList.add("was-validated")}
             text="CONTINUE"
             />
         </form>

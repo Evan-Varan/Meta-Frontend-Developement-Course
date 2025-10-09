@@ -67,33 +67,37 @@
   opacity: 1;
 }
 
-/* Only style fields after user attempted to submit */
-form.was-validated input.contact-input:invalid {
+/* Red underline on error (React adds .error) */
+.contact-input.error {
   border-bottom: 1px solid #e74c3c !important;
 }
-form.was-validated input.contact-input:invalid::placeholder {
-  color: #e74c3c;
-}
-.input-group .error-message{
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-    align-items: center;
-    opacity: 0;
-    max-height: 0;
-}
-.error-message p{
-    font-size: small;
-    font-family: var(--font-body);
-    color: #e74c3c;
+
+/* Error message styles (state-driven) */
+.error-message {
+  display: none;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
 }
 
-form.was-validated .input-group input.contact-input:invalid + .error-message{
+.error-message p {
+  font-size: small;
+  font-family: var(--font-body);
+  color: #e74c3c;
+  margin: 0;
+}
+
+/* When React sets .active, show it */
+.error-message.active {
+  display: flex;
   opacity: 1;
   max-height: 2rem;
 }
 
-form.was-validated .input-group input.contact-input:valid + .error-message{
-  opacity: 0;
-   max-height: 0;
+.contact-input:focus {
+  border-bottom: 1px solid #3498db; /* "Peter River" blue */
+  background-color: transparent;
 }
