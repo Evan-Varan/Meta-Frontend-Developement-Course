@@ -1,8 +1,13 @@
 import PrimaryButton from "../../Buttons/PrimaryButton/PrimaryButton"
 import SecondaryButton from "../../Buttons/SecondaryButton/SecondaryButton"
 import "./hero.css"
+import { useNavigate } from "react-router-dom";
 
 export default function Hero(){
+    const navigate = useNavigate();
+    const handleReserve = () => {
+        navigate("/booking");
+    };
     return(
         <div className="hero">
             <div className="inner-spacing">
@@ -15,7 +20,7 @@ export default function Hero(){
                     Our menu blends time-honored recipes with seasonal ingredients—bright citrus, fragrant herbs, and simple preparations that let each ingredient sing. 
                     Come for the food, stay for the warmth: every dish is crafted to feel like a meal at a friend’s table. </p>
                 <div className="buttons">
-                    <PrimaryButton text = "RESERVE"/>
+                    <PrimaryButton text = "RESERVE" onClick ={() => handleReserve()}/>
                     <SecondaryButton text = "LEARN MORE"/>
                 </div>
             </div>

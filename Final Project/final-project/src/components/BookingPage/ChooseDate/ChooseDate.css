@@ -1,0 +1,13 @@
+.choose-date-col{
+    height: 90vh;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+.choose-date-col > h2 {
+    font-size: x-large;
+    width: 100%;
+    text-align: center;
+}

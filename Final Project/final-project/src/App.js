@@ -8,6 +8,8 @@ import InstagramGallery from "./components/InstagramGallery/InstagramGallery"
 import Footer from './components/Footer/Footer';
 import { useRef, useState } from 'react';
 import BookingPage from './components/BookingPage/BookingPage';
+import { Routes, Route } from "react-router-dom";
+
 
 
 
@@ -26,17 +28,22 @@ function App() {
 
   return (
     <div className="App-header">
-      <BookingPage/>
+      <Routes>
+        <Route path ="/booking" element ={<BookingPage/>}/>
+      </Routes>
       <div className= "scroll-section-home" ref={landingPageRef}>
-        <LandingPage 
-          landingPageRef = {landingPageRef}
-          specialsPageRef = {specialsPageRef}
-          aboutPageRef = {aboutPageRef}
-          testimonialsSectionRef = {testimonialsSectionRef}
-          experienceRef = {experienceRef}
-          instagramGalleryRef = {instagramGalleryRef}
-          scrollToSection = {scrollToSection}
-        />
+        <Routes>
+          <Route path ="/" element ={
+          <LandingPage 
+            landingPageRef = {landingPageRef}
+            specialsPageRef = {specialsPageRef}
+            aboutPageRef = {aboutPageRef}
+            testimonialsSectionRef = {testimonialsSectionRef}
+            experienceRef = {experienceRef}
+            instagramGalleryRef = {instagramGalleryRef}
+            scrollToSection = {scrollToSection}
+          />}/>
+        </Routes>
       </div>
       <div className= "scroll-section-specials" ref={specialsPageRef}>
         <SpecialsPage/>

@@ -2,6 +2,7 @@ import "./ContactInfo.css"
 import TertiaryButton from "../../Buttons/TertiaryButton/TertiaryButton"
 import { BiError } from "react-icons/bi";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ContactInfo({setStep}){
     const [firstName, setFirstName] = useState ("");
@@ -17,11 +18,14 @@ export default function ContactInfo({setStep}){
     const [phoneErrorText, setPhoneErrorText] = useState("");
 
     const [hasSubmitted, setHasSubmitted] = useState(false);
-
+    
+    const navigate = useNavigate();
+    const handleHomePage = () => {
+        navigate("/");
+    };
 
     const handleFormSubmission = (e) => {
         e.preventDefault();                 // keep SPA behavior
-        const form = e.currentTarget;       // the <form>
 
         setHasSubmitted(true);
 
@@ -33,7 +37,7 @@ export default function ContactInfo({setStep}){
         if(isEmailValid && isPhoneValid && isFirstNameValid && isFamilyNameValid){
             const backendPhoneNumber = normalizePhone(phone);
             console.log(backendPhoneNumber);
-            setStep(1);                          // proceed when everything is valid
+            setStep(() => handleHomePage());                          // proceed when everything is valid
         }
     };
     

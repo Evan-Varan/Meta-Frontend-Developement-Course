@@ -4,9 +4,15 @@ import Header from "./Header/Header";
 import NumberofGuests from "./NumberofGuests/NumberofGuests";
 import ChooseDate from "./ChooseDate/ChooseDate";
 import ContactInfo from "./ContactInfo/ContactInfo";
+import { useNavigate } from "react-router-dom";
 
 export default function BookingPage(){
     const[step, setStep] = useState(1)
+
+    const navigate = useNavigate();
+    const handleHomePage = () => {
+        navigate("/");
+    };
 
     function stepForwards(){
         console.log("stepForward")
@@ -15,6 +21,9 @@ export default function BookingPage(){
         }
     }
     function stepBackwards(){
+        if(step == 1){
+            handleHomePage();
+        }
         if(step > 1){
             setStep(step-1);
         }
@@ -25,7 +34,7 @@ export default function BookingPage(){
             return <NumberofGuests stepForwards = {stepForwards}/>
         }
         else if(step == 2){
-            return <ChooseDate/>
+            return <ChooseDate stepForwards = {stepForwards}/>
         }
         else if(step == 3){
             return <ContactInfo setStep={setStep}/>
