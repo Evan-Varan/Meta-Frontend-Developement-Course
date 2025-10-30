@@ -14,9 +14,9 @@ export default function Header({step, setStep, stepForwards, stepBackwards}){
                 <div className="slider-divider-progress" style ={{width : `${(100/3) * step}%`}}></div>
             </div>
             <div className="secondary-header-row">
-                <SubHeader number = "1" name = "Number of guests" onClick={() => setStep(1)}/>
-                <SubHeader number = "2" name = "Choose date" onClick={() => setStep(2)}/>
-                <SubHeader number = "3" name = "Contact info" onClick={() => setStep(3)}/>
+                <SubHeader number = "1" name = "Number of guests" onClick={() => setStep(1)} aria-label="On Click"/>
+                <SubHeader number = "2" name = "Choose date" onClick={() => setStep(2)} aria-label="On Click"/>
+                <SubHeader number = "3" name = "Contact info" onClick={() => setStep(3)} aria-label="On Click"/>
             </div>
         </div>
     )

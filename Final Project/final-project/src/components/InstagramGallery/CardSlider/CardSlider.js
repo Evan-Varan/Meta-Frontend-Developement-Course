@@ -6,7 +6,7 @@ export default function CardSlider({changeCardsForward, changeCardsBackwards, sl
     return(
         <div className="card-slider">
             <FaArrowLeftLong  className="arrow" onClick={() => changeCardsBackwards()}/>
-            <div className="slider-divider-background">
+            <div className="insta-slider-divider-background">
                 <div className="slider-divider-progress" style={{width: `${(slotTracker3 + 1) * 2}rem`}}></div>
             </div>
             

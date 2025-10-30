@@ -15,7 +15,7 @@ export default function ChooseDate({stepForwards}) {
         value={value}
       />
       <p>Selected: {value.toLocaleDateString()}</p>
-      <TertiaryButton text= "CONTINUE" onClick = {() => stepForwards()}/>
+      <TertiaryButton text= "CONTINUE" onClick = {() => stepForwards()} aria-label="On Click"/>
     </div>
   );
 }

@@ -260,6 +260,7 @@ export default function ContactInfo({setStep}){
             <TertiaryButton
             type="submit"
             text="CONTINUE"
+            aria-label="On Click"
             />
         </form>
     )
