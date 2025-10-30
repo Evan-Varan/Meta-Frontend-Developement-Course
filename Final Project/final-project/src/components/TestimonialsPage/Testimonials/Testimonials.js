@@ -1,9 +1,9 @@
 import TestimonialCard from "../TestimonialCard/TestimonialCard"
 import "./Testimonials.css"
-import Jordan from "../../../assets/jordan.jpeg"
-import Tilly from "../../../assets/tilly.jpg"
-import Stewart from "../../../assets/stewart.jpg"
-import Veronica from "../../../assets/veronica.jpg"
+import Jordan from "../../../assets/jordan.webp"
+import Tilly from "../../../assets/tilly.webp"
+import Stewart from "../../../assets/stewart.webp"
+import Veronica from "../../../assets/veronica.webp"
 
 export default function Testimonials(){
     return(

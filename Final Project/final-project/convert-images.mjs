@@ -13,7 +13,7 @@ if (!fs.existsSync(outputDir)) {
 // loop through all files in the folder
 fs.readdirSync(inputDir).forEach(file => {
   const ext = path.extname(file).toLowerCase();
-  if ([".jpg", ".jpeg", ".png"].includes(ext)) {
+  if ([".webp", ".webp", ".png"].includes(ext)) {
     const inputPath = path.join(inputDir, file);
     const outputPath = path.join(outputDir, `${path.parse(file).name}.webp`);
 

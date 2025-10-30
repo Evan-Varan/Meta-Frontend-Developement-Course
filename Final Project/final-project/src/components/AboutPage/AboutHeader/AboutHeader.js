@@ -1,6 +1,4 @@
 import "./AboutHeader.css"
-import PeopleEating from "../../../assets/priscilla-du-preez-W3SEyZODn8U-unsplash.jpg"
-import PrimaryButton from "../../Buttons/PrimaryButton/PrimaryButton"
 import TertiaryButton from "../../Buttons/TertiaryButton/TertiaryButton"
 import LLLogo from "../../../assets/Logo.svg"
 import { FaArrowRightLong } from "react-icons/fa6";

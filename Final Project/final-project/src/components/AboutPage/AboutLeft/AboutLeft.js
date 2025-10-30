@@ -1,6 +1,6 @@
 import "./AboutLeft.css";
-import Img1 from "../../../assets/casey-lee-awj7sRviVXo-unsplash.jpg"
-import Img2 from "../../../assets/jennifer-burk-KEJVt0h-DNU-unsplash.jpg"
+import Img1 from "../../../assets/casey-lee-awj7sRviVXo-unsplash.webp"
+import Img2 from "../../../assets/jennifer-burk-KEJVt0h-DNU-unsplash.webp"
 
 export default function ImageCollage() {
   return (
