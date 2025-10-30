@@ -21,6 +21,7 @@ export default function ContactInfo({setStep}){
     
     const navigate = useNavigate();
     const handleHomePage = () => {
+        console.log("reached")
         navigate("/");
     };
 
@@ -34,10 +35,10 @@ export default function ContactInfo({setStep}){
         const isFirstNameValid = validateFirstName(firstName);
         const isFamilyNameValid = validateFamilyName(familyName);
 
+
         if(isEmailValid && isPhoneValid && isFirstNameValid && isFamilyNameValid){
             const backendPhoneNumber = normalizePhone(phone);
-            console.log(backendPhoneNumber);
-            setStep(() => handleHomePage());                          // proceed when everything is valid
+            handleHomePage(); // proceed when everything is valid
         }
     };
     
@@ -170,16 +171,36 @@ export default function ContactInfo({setStep}){
             <div className="contact-section">
                 <div className="contact-row">
                     <div className="input-group">
-                        <label>First Name</label>
-                        <input value = {firstName} onChange = {handleFirstNameChange} type = "text" placeholder ="First Name" id="first-name" minLength ="2" name="first-name" required autoComplete = "given-name" className={`contact-input ${firstNameErrorText ? "error" : ""}`}></input>
+                        <label htmlFor="first-name">First Name</label>
+                        <input 
+                            value = {firstName} 
+                            onChange = {handleFirstNameChange} 
+                            type = "text" 
+                            placeholder ="First Name" 
+                            id="first-name" 
+                            minLength ="2" 
+                            name="first-name" 
+                            required 
+                            autoComplete = "given-name" 
+                            className={`contact-input ${firstNameErrorText ? "error" : ""}`}></input>
                         <div className={`error-message ${firstNameErrorText ? 'active' : ''}`}>
                             <BiError color = "#e74c3c"/>
                             <p>{firstNameErrorText}</p>
                         </div>
                     </div>
                     <div className="input-group">
-                        <label>Last Name</label>
-                        <input value = {familyName} onChange = {handleFamilyNameChange} type = "text" placeholder ="Last Name" id="last-name" minLength ="2" name="last-name" required autoComplete = "family-name" className={`contact-input ${familyNameErrorText ? "error" : ""}`}></input>
+                        <label htmlFor="last-name">Last Name</label>
+                        <input 
+                            value = {familyName} 
+                            onChange = {handleFamilyNameChange} 
+                            type = "text" 
+                            placeholder ="Last Name" 
+                            id="last-name" 
+                            minLength ="2" 
+                            name="last-name" 
+                            required 
+                            autoComplete = "family-name" 
+                            className={`contact-input ${familyNameErrorText ? "error" : ""}`}></input>
                         <div className={`error-message ${familyNameErrorText ? 'active' : ''}`}>
                             <BiError color = "#e74c3c"/>
                             <p>{familyNameErrorText}</p>
@@ -187,8 +208,18 @@ export default function ContactInfo({setStep}){
                     </div>
                 </div>
                 <div className="input-group">
-                    <label>Email</label>
-                    <input value = {email} inputMode = "email" onChange={handleEmailChange} type = "text" placeholder ="Email" id="email" name="email" required autoComplete = "email" className={`contact-input ${emailErrorText ? "error" : ""}`}></input>
+                    <label htmlFor="email">Email</label>
+                    <input 
+                        value = {email} 
+                        inputMode = "email" 
+                        onChange={handleEmailChange} 
+                        type = "text" 
+                        placeholder ="Email" 
+                        id="email" 
+                        name="email" 
+                        required 
+                        autoComplete = "email" 
+                        className={`contact-input ${emailErrorText ? "error" : ""}`}></input>
                     <div className={`error-message ${emailErrorText ? 'active' : ''}`}>
                         <BiError color="#e74c3c"/>
                         <p id="email-error">{emailErrorText}</p>
@@ -196,12 +227,30 @@ export default function ContactInfo({setStep}){
 
                 </div>
                 <div className="input-group">
-                    <label>Company - Optional</label>
-                    <input type = "text" placeholder ="Company - Optional" id="company" minLength ="2" name="company" autoComplete = "organization"className="contact-input"></input>
+                    <label htmlFor="company">Company - Optional</label>
+                    <input 
+                        type = "text" 
+                        placeholder ="Company - Optional" 
+                        id="company" 
+                        minLength ="2" 
+                        name="company" 
+                        autoComplete = "organization"
+                        className="contact-input"></input>
                 </div>
                 <div className="input-group">
-                    <label>Phone</label>
-                    <input value = {phone} type = "text" placeholder ="Phone" onChange={handlePhoneChange} id="phone" minLength ="10" name="phone" required autoComplete = "tel" pattern="[0-9]{10}" className={`contact-input ${phoneErrorText ? "error" : ""}`}></input>
+                    <label htmlFor="phone">Phone</label>
+                    <input 
+                        value = {phone} 
+                        type = "text" 
+                        placeholder ="Phone" 
+                        onChange={handlePhoneChange} 
+                        id="phone" 
+                        minLength ="10" 
+                        name="phone" 
+                        required 
+                        autoComplete = "tel" 
+                        pattern="[0-9]{10}" 
+                        className={`contact-input ${phoneErrorText ? "error" : ""}`}></input>
                     <div className={`error-message ${phoneErrorText ? 'active' : ''}`}>
                         <BiError color="#e74c3c"/>
                         <p id="email-error">{phoneErrorText}</p>
