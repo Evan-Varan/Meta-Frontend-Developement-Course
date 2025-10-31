@@ -19,9 +19,15 @@ export default function ContactInfo({setStep}){
 
     const [hasSubmitted, setHasSubmitted] = useState(false);
     
+    const submitAPI = function(formData) {
+        return true;
+    };
+
+
     const navigate = useNavigate();
     const handleHomePage = () => {
         console.log("reached")
+        
         navigate("/");
     };
 
@@ -37,6 +43,15 @@ export default function ContactInfo({setStep}){
 
 
         if(isEmailValid && isPhoneValid && isFirstNameValid && isFamilyNameValid){
+
+            const formData = {
+                FirstName : firstName, 
+                LastName : familyName, 
+                Email: email, 
+                Phone: phone
+            };
+
+            submitAPI(formData)
             const backendPhoneNumber = normalizePhone(phone);
             handleHomePage(); // proceed when everything is valid
         }

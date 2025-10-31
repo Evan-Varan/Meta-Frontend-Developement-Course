@@ -3,11 +3,17 @@
     width: 30%;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 4rem;
     align-items: center;
 }
 .choose-date-col > h2 {
     font-size: x-large;
     width: 100%;
     text-align: center;
+}
+.buttons-grid{
+    display: grid;
+    grid-auto-columns: auto;
+    grid-template-areas: "a a a";
+    gap: 1rem;
 }
